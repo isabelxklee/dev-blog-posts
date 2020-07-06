@@ -2,7 +2,7 @@
 title: Understanding Inverse Data Flow in React
 published: false
 series: Intro to React/Redux
-cover_image: https://i.imgur.com/S32FVXz.png
+cover_image: https://i.imgur.com/WXFTo3A.png
 ---
 
 ## What is inverse data flow?
