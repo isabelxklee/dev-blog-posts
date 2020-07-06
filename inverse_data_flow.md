@@ -4,7 +4,7 @@ published: false
 ---
 
 #### What is Inverse Data Flow?
-In React, only parent components and child components can communicate with each other. This means that components that are cousins or siblings cannot directly talk to each other.
+In React, inverse data flow allows us to send data between parent and child components as props, or properties. However, components that are cousins or siblings cannot directly communicate with each other.
 
 #### Example Scenario
 Here's an example of inverse data flow between a parent component and a child component. Let's say we're building an app that allows users to create accounts by entering their email addresses.
