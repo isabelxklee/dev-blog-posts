@@ -9,12 +9,8 @@ In React, inverse data flow allows us to send data between parent and child comp
 #### Example Scenario
 Here's an example of inverse data flow between a parent component and a child component. Let's say we're building an app that allows users to create accounts by entering their email addresses.
 
-From our `App` component, we can send the `handleChange` and `handleSubmit` functions down to the `CreateAccountForm` component as props. This allows us to "reuse" these functions for other components, like the `AccountSettings` component by also sending them down as props.
-
-If the `handleChange` function – which is used in both `CreateAccountForm` and `AccountSettings` – were housed in either of the child components, it wouldn't be accessible to each other. We would have to copy and paste the function into the other sibling component (which is not very DRY!), or we'd have to send it back up to the parent component and then back down to the other sibling (which would not be as intuitive from a code organization standpoint).
-
 ```javascript
-class App extends React.Component {
+class Home extends React.Component {
   state = {
     email_address: ""
   }
@@ -25,29 +21,106 @@ class App extends React.Component {
     })
   }
 
-  handleSubmit = (event) => {
+  handleResponse = (event) => {
     event.preventDefault()
-    console.log("You've successfully created an account!")
-  }
-
-  handleUpdate = (event) => {
-    event.preventDefault()
-    console.log("Your email address has been updated.")
+    console.log("Something has been done.")
   }
 
   render () {
     return (
       <CreateAccountForm
         handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}/>
+        handleResponse={this.handleResponse}/>
 
       <AccountSettings
         handleChange={this.handleChange}
-        handleUpdate={this.handleUpdate}/>
+        handleResponse={this.handleResponse}/>
+    )
+  }
+}
+```
+
+From our Home component, we can send the `handleChange()` and `handleResponse()` function down to the CreateAccountForm and AccountSettings components as props. This allows us to "reuse" these functions without having to copy and paste the same function in both of the child components.
+
+If we didn't use props, here's what our components might look like:
+
+```javascript
+class Home extends React.Component {
+  state = {
+    email_address: ""
+  }
+
+  render () {
+    return (
+      <CreateAccountForm />
+      <AccountSettings />
     )
   }
 }
 
+class CreateAccountForm extends React.Component {
+  handleChange = (inputFromChild) => {
+    this.setState({
+      email_address: inputFromChild
+    })
+  }
+
+  handleResponse = (event) => {
+    event.preventDefault()
+    console.log("Something has been done.")
+  }
+
+  render () {
+    return (
+      <div>
+        <form onSubmit={this.handleResponse}>
+          <label>Email Address: </label>
+          <input type="text" name="email_address" onChange={this.handleChange} />
+          <input type="submit" value="Create Account" />
+        </form>
+
+      </div>
+    )
+  }
+}
+
+class AccountSettings extends React.Component {
+  handleChange = (inputFromChild) => {
+    this.setState({
+      email_address: inputFromChild
+    })
+  }
+
+  handleResponse = (event) => {
+    event.preventDefault()
+    console.log("Something has been done.")
+  }
+
+  render () {
+    return (
+      <div>
+        <form onSubmit={this.handleResponse}>
+          <label>Email Address: </label>
+          <input type="text" name="email_address" onChange={this.handleChange} />
+          <input type="submit" value="Create Account" />
+        </form>
+
+      </div>
+    )
+  }
+}
+```
+
+This isn't very DRY, is it? It also makes things complicated if we want to update the `handleChange()` and `handleReponse()` functions in both places. Placing those two functions in the Home component and sending it down to its child components creates a single source of truth.
+
+#### Limitations of inverse data flow
+While inverse data flow is great for writing DRYer code, it can sometimes be too restrictive. For example, components that do not have a direct parent or child cannot share props with each other.
+
+If we wrote a function called `toggleFormVisibility()` in our CreateAccountForm component, and we wanted to use it in our AccountSettings component, it would be not be available as a prop. In order to create access, we would have to send this back up to the parent and back down to AccountSettings.
+
+This process of sharing data can become quite cumbersome and confusing to follow if there are several components with complex relationships.
+
+```javascript
 class CreateAccountForm extends React.Component {
   state = {
     displayForm: false
@@ -64,7 +137,7 @@ class CreateAccountForm extends React.Component {
       <div>
         <button onClick={this.toggleFormVisibility}>Show the form</button>
 
-        <form onSubmit={this.props.handleSubmit}>
+        <form onSubmit={this.props.handleResponse}>
           <label>Email Address: </label>
           <input type="text" name="email_address" onChange={this.props.handleChange} />
           <input type="submit" value="Create Account" />
