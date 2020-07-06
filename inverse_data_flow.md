@@ -2,6 +2,7 @@
 title: Understanding Inverse Data Flow in React
 published: false
 series: Intro to React/Redux
+cover_image: https://i.imgur.com/S32FVXz.png
 ---
 
 ## What is inverse data flow?
@@ -115,9 +116,9 @@ class AccountSettings extends React.Component {
 This isn't very DRY, is it? It also makes things complicated if we want to update the `handleChange()` and `handleReponse()` functions in both places. Placing those two functions in the Home component and sending it down to its child components creates a single source of truth.
 
 ## Limitations of inverse data flow
-While inverse data flow is great for writing DRYer code, it can sometimes be too restrictive. For example, components that do not have a direct parent or child cannot share props with each other.
+While inverse data flow is great for writing DRYer code, it can sometimes be too restrictive. For example, components that do not have a direct parent or child relationship cannot share props with each other.
 
-If we wrote a function called `toggleFormVisibility()` in our CreateAccountForm component, and we wanted to use it in our AccountSettings component, it would be not be available as a prop. In order to create access, we would have to send this back up to the parent and back down to AccountSettings.
+If we wrote a function called `toggleFormVisibility()` in our CreateAccountForm component, and we wanted to use it in our AccountSettings component, it would be not be available as a prop. In order to create access to that function, we would have to send it back up to the parent and back down to AccountSettings.
 
 ```javascript
 class CreateAccountForm extends React.Component {
