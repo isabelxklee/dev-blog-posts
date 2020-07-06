@@ -1,7 +1,7 @@
 ---
 title: Understanding Inverse Data Flow in React
 published: false
-series: React/Redux
+series: Intro to React/Redux
 ---
 
 ## What is inverse data flow?
@@ -152,9 +152,61 @@ This process of sharing data can become quite cumbersome and confusing to follow
 
 ## Summary
 1. Define the function in the parent component.
+
+```javascript
+class Home extends React.Component {
+  state = {
+    email_address: ""
+  }
+
+  handleChange = (inputFromChild) => {
+    this.setState({
+      email_address: inputFromChild
+    })
+  }
+
+  render () {
+    return (
+      <CreateAccountForm />
+      <AccountSettings />
+    )
+  }
+}
+```
+
 2. Send down the function as props to the child component.
+
+```javascript
+class Home extends React.Component {
+  ...
+
+  render () {
+    return (
+      <CreateAccountForm handleChange={this.handleChange} />
+      <AccountSettings handleChange={this.handleChange} />
+    )
+  }
+}
+```
+
 3. Invoke the function in the child.
 4. Send data back up to the parent as props.
-5. Voila! You've just created inverse data flow.
 
-## Conclusion
+```javascript
+class CreateAccountForm extends React.Component {
+  render () {
+    return (
+      <div>
+        <form>
+          <label>Email Address: </label>
+          <input type="text" name="email_address" onChange={this.props.handleChange} />
+          <input type="submit" value="Create Account" />
+        </form>
+
+      </div>
+    )
+  }
+}
+```
+
+5. Voila! You've just created inverse data flow.
