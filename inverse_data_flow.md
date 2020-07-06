@@ -151,7 +151,7 @@ class CreateAccountForm extends React.Component {
 This process of sharing data can become quite cumbersome and confusing to follow if there are several components with complex relationships.
 
 ## Summary
-1. Define the function in the parent component.
+1) Define the function in the parent component.
 
 ```javascript
 class Home extends React.Component {
@@ -174,7 +174,7 @@ class Home extends React.Component {
 }
 ```
 
-2. Send down the function as props to the child component.
+2) Send down the function as props to the child component.
 
 ```javascript
 class Home extends React.Component {
@@ -189,8 +189,8 @@ class Home extends React.Component {
 }
 ```
 
-3. Invoke the function in the child.
-4. Send data back up to the parent as props.
+3) Invoke the function in the child.
+4) Send data back up to the parent as props.
 
 ```javascript
 class CreateAccountForm extends React.Component {
@@ -209,4 +209,4 @@ class CreateAccountForm extends React.Component {
 }
 ```
 
-5. Voila! You've just created inverse data flow.
+5) Voila! You've just created inverse data flow.
