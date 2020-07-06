@@ -8,7 +8,9 @@ Redux is a global state management tool used in JavaScript applications. It's mo
 
 ## What are the benefits of using Redux?
 1. Global state management
-If you've ever built a React app, you know how confusing [inverse data flow](https://dev.to) can be. While Redux doesn't completely erase the need for inverse data flow or local state management, it can make your life easier with global state management.
+If you've ever built a React app, you know how confusing [inverse data flow](https://dev.to) can be. While Redux doesn't completely erase the need for inverse data flow or local state management, it can make your life easier.
+
+If you're building a complex app with several components, passing down props between many layers of components can become messy. Global state allows us to manage state indepently of our components and sits above our App component. Any component can access the global state without getting props passed down from its parent component. 
 
 #### What is global state vs. local state?
 Global state is independent of all other components. Its placed above the App component, usually in `index.js`.
