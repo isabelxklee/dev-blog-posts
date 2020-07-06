@@ -3,10 +3,10 @@ title: Understanding Inverse Data Flow in React
 published: false
 ---
 
-#### What is Inverse Data Flow?
+## What is inverse data flow?
 In React, inverse data flow allows us to send data between parent and child components as props, or properties. However, components that are cousins or siblings cannot directly communicate with each other.
 
-#### Example Scenario
+## Sharing data between parent and child components
 Here's an example of inverse data flow between a parent component and a child component. Let's say we're building an app that allows users to create accounts by entering their email addresses.
 
 ```javascript
@@ -40,7 +40,7 @@ class Home extends React.Component {
 }
 ```
 
-From our Home component, we can send the `handleChange()` and `handleResponse()` function down to the CreateAccountForm and AccountSettings components as props. This allows us to "reuse" these functions without having to copy and paste the same function in both of the child components.
+In our Home component, we're defining the `handleChange()` and `handleResponse()` functions and then sending them down as props to its child components, CreateAccountForm and AccountSettings. The information inputted by the user in these child components is then sent back up to the parent component by invoking those very same functions. This allows us to "reuse" these functions without having to copy and paste the same code in both of the child components.
 
 If we didn't use props, here's what our components might look like:
 
@@ -113,7 +113,7 @@ class AccountSettings extends React.Component {
 
 This isn't very DRY, is it? It also makes things complicated if we want to update the `handleChange()` and `handleReponse()` functions in both places. Placing those two functions in the Home component and sending it down to its child components creates a single source of truth.
 
-#### Limitations of inverse data flow
+## Limitations of inverse data flow
 While inverse data flow is great for writing DRYer code, it can sometimes be too restrictive. For example, components that do not have a direct parent or child cannot share props with each other.
 
 If we wrote a function called `toggleFormVisibility()` in our CreateAccountForm component, and we wanted to use it in our AccountSettings component, it would be not be available as a prop. In order to create access, we would have to send this back up to the parent and back down to AccountSettings.
@@ -148,3 +148,12 @@ class CreateAccountForm extends React.Component {
   }
 }
 ```
+
+## Summary
+1. Function definition in the parent component
+2. Send down the function as props to the child component
+3. Invoke the function in the child
+4. Send back up to parent as props
+5. Voila!
+
+## Conclusion
