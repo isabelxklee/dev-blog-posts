@@ -1,6 +1,12 @@
 ---
-title: Getting Started With Redux without Pulling Your Hair Out 💓
+title: Setting Up Redux Without Pulling Your Hair Out 💆🏻‍♀️💓
 published: false
 ---
 
-Hello, world!
+### What is Redux?
+
+### What are the benefits of using Redux?
+
+### How to set up Redux with a React App
+
+### Maintaining your global state
