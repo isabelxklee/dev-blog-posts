@@ -1,6 +1,7 @@
 ---
 title: Setting Up Redux Without Pulling Your Hair Out 💆🏻‍♀️💓
 published: false
+series: React/Redux
 ---
 
 ## What is Redux?

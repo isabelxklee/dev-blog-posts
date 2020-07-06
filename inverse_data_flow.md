@@ -1,6 +1,7 @@
 ---
 title: Understanding Inverse Data Flow in React
 published: false
+series: React/Redux
 ---
 
 ## What is inverse data flow?
@@ -118,8 +119,6 @@ While inverse data flow is great for writing DRYer code, it can sometimes be too
 
 If we wrote a function called `toggleFormVisibility()` in our CreateAccountForm component, and we wanted to use it in our AccountSettings component, it would be not be available as a prop. In order to create access, we would have to send this back up to the parent and back down to AccountSettings.
 
-This process of sharing data can become quite cumbersome and confusing to follow if there are several components with complex relationships.
-
 ```javascript
 class CreateAccountForm extends React.Component {
   state = {
@@ -149,11 +148,13 @@ class CreateAccountForm extends React.Component {
 }
 ```
 
+This process of sharing data can become quite cumbersome and confusing to follow if there are several components with complex relationships.
+
 ## Summary
-1. Function definition in the parent component
-2. Send down the function as props to the child component
-3. Invoke the function in the child
-4. Send back up to parent as props
-5. Voila!
+1. Define the function in the parent component.
+2. Send down the function as props to the child component.
+3. Invoke the function in the child.
+4. Send data back up to the parent as props.
+5. Voila! You've just created inverse data flow.
 
 ## Conclusion
