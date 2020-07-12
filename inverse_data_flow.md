@@ -1,6 +1,6 @@
 ---
-title: Understanding Inverse Data Flow in React
-published: false
+title: Understanding Inverse Data Flow in React 💃🏻
+published: true
 series: Intro to React/Redux
 cover_image: https://i.imgur.com/WXFTo3A.png
 ---
