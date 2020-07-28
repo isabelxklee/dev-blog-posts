@@ -1,5 +1,5 @@
 ---
-title: Beginner's Guide to Git + GitHub
+title: A Beginner's Guide to Git + GitHub
 published: false
 tags: git, github
 ---
@@ -83,3 +83,5 @@ Forking a repository makes a copy of it and lives on your GitHub account. For ex
 
 #### Clone
 Cloning a repository does *not* make a copy, but instead directly downloads on to your local machine. 
+
+Git Documentation: https://git-scm.com
