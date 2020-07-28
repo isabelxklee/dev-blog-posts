@@ -1,7 +1,8 @@
 ---
 title: A Beginner's Guide to Git + GitHub
-published: false
+published: true
 tags: git, github
+cover_image: https://i.imgur.com/KcLnrnU.png
 ---
 
 ## Terminology
