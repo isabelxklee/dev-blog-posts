@@ -1,27 +1,26 @@
 ---
 title: Beginner's Guide to Git
 published: false
-tags: git, github
-cover_image: 
+tags: git, github, cli
 ---
 
 ## Commands
-#### `git add`
+#### git add
 Adds any files that have been changed to the staging zone...
 
-#### `git commit`
+#### git commit
 Adds any files that have been changed to the staging zone...
 
-#### `git push`
+#### git push
 Adds any files that have been changed to the staging zone...
 
-#### `git pull`
+#### git pull
 Adds any files that have been changed to the staging zone...
 
-#### `git remote -v`
+#### git remote -v
 Adds any files that have been changed to the staging zone...
 
-#### `git status`
+#### git status
 Adds any files that have been changed to the staging zone...
 
 ## Terminology
