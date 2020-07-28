@@ -6,7 +6,7 @@ tags: git, github
 
 ## Commands
 #### git add
-Adds any files that have been changed to the staging zone...
+Adds any files that have been changed to git's staging zone so that it is ready to be committed. Think of it as adding a tracker to your files, so that git knows what has changed or been updated.
 
 #### git commit
 Saves a snapshot of your work. It's like a checkpoint that you can always revert back to. All commits are accessible on your repository and you can see the exact changes that you made.
@@ -18,10 +18,55 @@ Sends all your commit back up to GitHub so that your work isn't just living on y
 Updates your local machine with any changes that have been made to your repository remotely. For example, if you're working with a partner, `git pull` will update your local repository with any changes that your partner has pushed up to GitHub.
 
 #### git remote -v
-Adds any files that have been changed to the staging zone...
+Allows you to see all the remote repositories that are tracking this branch of code.
 
 #### git status
-Adds any files that have been changed to the staging zone...
+Shows you if there are any differences between the local and remote repositories; any files that have been changed, but not tracked with `git add` yet; and any files that have been committed but not pushed up.
+
+Example:
+```
+~/Development/dev-blog-posts // ♥ > git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   beginners_guide_to_git.md
+```
+
+#### git branch
+Shows you all the existing branches in the repository.
+
+Example:
+```
+~/Development/dev-blog-posts // ♥ > git branch
+  * master
+  refactor
+```
+
+#### git branch -d <BRANCH_NAME>
+Delete a branch from your repository.
+
+Example:
+```
+~/Development/dev-blog-posts // ♥ > git branch -d refactor
+  Deleted branch refactor (was ed6cd03).
+```
+
+#### git checkout -b <BRANCH_NAME>
+Create a new branch.
+
+Example:
+```
+~/Development/dev-blog-posts // ♥ > git checkout -b refactor
+  Switched to a new branch 'refactor'
+```
+
+#### git checkout <BRANCH_NAME>
+Switch to a different branch.
+
+#### git merge <BRANCH_NAME>
+Merges two branches together. If there are differences in the code between the branches, there will be a merge conflict.
 
 ## Terminology
 #### Repository
