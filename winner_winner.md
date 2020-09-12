@@ -17,21 +17,51 @@ Last week, I launched a random name picker app called [Winner Winner, Chicken Di
 * As long as you don't clear your browser cookies, you can always access your most recent list!
 
 ## Some programming quirks
-* I'm not a huge fan of using Regex, so it was a bit of a pain to format the user's input into an array and then back into a string. I'm still figuring out the best way to deal with edge cases -- like, what do I do if the user doesn't follow my instructions on how to enter their list? What if they use line breaks instead of commas to separate their list items?
+* I'm not a huge fan of using Regex, so it was a bit of a pain to format the user's input into an array and then back into a string. I'm still figuring out the best way to deal with edge cases – like, what do I do if the user doesn't follow my instructions on how to enter their list? What if they use line breaks instead of commas to separate their list items?
+
+```javascript
+  // regex logic for turning the user's input into an array
+  formatStringToArr = (string) => { 
+    return string.replace( /[\r\n]+/gm, ", " ).split(", ")
+  }
+
+  // taking the new array, randomizing the order by using the chance dependency, and then turning into a string again to save it to localStorage
+  formatLocalStorage = () => {
+  let peopleArray = this.formatStringToArr(localStorage.people)
+  peopleArray = chance.shuffle(peopleArray)
+  localStorage.setItem("people", peopleArray.join(", "))
+
+  this.setState({
+    array: peopleArray
+  })
+}
+```
 
 * I initially used Redux for global state management and stored the backend data in a `db.json` file. I quickly gave up on this idea when I realized that it would be overkill. Instead, I ended up refactoring my app to get and set the user's data with localStorage!
 
-* I also wanted to avoid implementing authentication -- it seemed more accessible to allow the users to quickly create a list and play around with it, rather than forcing them to sign up before they could access any of the features. With the freedom of not needing to build auth, I started to brainstorm how I could structure the app without a backend API.
+```javascript
+  // saving the user's input to the local state
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  // saving the local state to localStorage and then redirecting the user to their new list page!
+  handleSubmit = (event) => {
+    event.preventDefault()
+    localStorage.setItem("title", this.state.title)
+    localStorage.setItem("people", this.state.people)
+    this.props.history.push("/list")
+  }
+```
+
+* I also wanted to avoid implementing authentication – it seemed more accessible to allow the users to quickly create a list and play around with it, rather than forcing them to sign up before they could access any of the features. With the freedom of not needing to build auth, I started to brainstorm how I could structure the app without a backend API.
 
 ## The story behind Winner Winner
 As a software engineering coach at Flatiron School, I lead several meetings a week where I have to pick on students to participate. We usually do a popcorn-style rotation where the person who just participated picks the next person to go. But with 25 students and 4 instructors in the class, it can be tedious taking account of who's already gone and who's still left.
 
 One of my goals this year is to become a stronger frontend developer and become more familiar with JavaScript frameworks. I love working with React and Redux, so I decided to give myself a short deadline of building a single-page app using React and [styled components](https://styled-components.com).
-
-## What would I do differently next time?
-* Would've picked an easier dataset to work with if I knew how tricky it was going to be to load +7,000 data points (lol!)
-* Would've done more research on different React tools for the Mapbox API before committing to the first one that I found and constantly refactoring my code
-* Would've reached out for help earlier from my colleagues!
 
 ![Winner Winner, Chicken Dinner! logo](https://i.imgur.com/GB5LVVY.png)
 
