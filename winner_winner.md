@@ -1,7 +1,7 @@
 ---
 title: Launching Winner Winner, Chicken Dinner! 🐔⚡️
 published: false
-tags: react, javascript, html, css, launch
+tags: react, javascript, css, launch
 cover_image: https://i.imgur.com/GB5LVVY.png
 ---
 
