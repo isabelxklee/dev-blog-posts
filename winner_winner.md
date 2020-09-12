@@ -61,7 +61,9 @@ Last week, I launched a random name picker app called [Winner Winner, Chicken Di
 ## The story behind Winner Winner
 As a software engineering coach at Flatiron School, I lead several meetings a week where I have to pick on students to participate. We usually do a popcorn-style rotation where the person who just participated picks the next person to go. But with 25 students and 4 instructors in the class, it can be tedious taking account of who's already gone and who's still left.
 
-One of my goals this year is to become a stronger frontend developer and become more familiar with JavaScript frameworks. I love working with React and Redux, so I decided to give myself a short deadline of building a single-page app using React and [styled components](https://styled-components.com).
+I took this as a chance to create a fun, light tool that would be useful teachers, managers, and anyone else who needs a randomized list!
+
+One of my goals this year is also to become a stronger frontend developer and familiarize myself more with different JavaScript frameworks. I love working with React, so I decided to give myself the goal of creating this app within a couple weeks. Winner Winner, Chicken Dinner! is built using React and [styled components](https://styled-components.com).
 
 ![Winner Winner, Chicken Dinner! logo](https://i.imgur.com/GB5LVVY.png)
 
