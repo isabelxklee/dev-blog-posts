@@ -1,6 +1,6 @@
 ---
 title: Launching Winner Winner, Chicken Dinner! 🐔⚡️
-published: false
+published: true
 tags: react, css, showdev, webdev
 cover_image: https://i.imgur.com/GB5LVVY.png
 ---
@@ -17,7 +17,8 @@ Last week, I launched a random name picker app called [Winner Winner, Chicken Di
 * As long as you don't clear your browser cookies, you can always access your most recent list!
 
 ## Some programming quirks
-* I'm not a huge fan of using Regex, so it was a bit of a pain to format the user's input into an array and then back into a string. I'm still figuring out the best way to deal with edge cases – like, what do I do if the user doesn't follow my instructions on how to enter their list? What if they use line breaks instead of commas to separate their list items?
+#### Feeling the pain of regex
+I'm not a huge fan of using regex (which stands for "regular expression"), so it was a bit of a pain to format the user's input into an array and then back into a string. I'm still figuring out the best way to deal with edge cases – like, what do I do if the user doesn't follow my instructions on how to enter their list? What if they use line breaks instead of commas to separate their list items?
 
 ```javascript
   // regex logic for turning the user's input into an array
@@ -37,7 +38,8 @@ Last week, I launched a random name picker app called [Winner Winner, Chicken Di
 }
 ```
 
-* I initially used Redux for global state management and stored the backend data in a `db.json` file. I quickly gave up on this idea when I realized that it would be overkill. Instead, I ended up refactoring my app to get and set the user's data with localStorage!
+#### State management
+I initially used Redux for global state management and stored the backend data in a `db.json` file. I quickly gave up on this idea when I realized that it would be overkill. Instead, I ended up refactoring my app to get and set the user's data with localStorage!
 
 ```javascript
   // saving the user's input to the local state
@@ -56,7 +58,8 @@ Last week, I launched a random name picker app called [Winner Winner, Chicken Di
   }
 ```
 
-* I also wanted to avoid implementing authentication – it seemed more accessible to allow the users to quickly create a list and play around with it, rather than forcing them to sign up before they could access any of the features. With the freedom of not needing to build auth, I started to brainstorm how I could structure the app without a backend API.
+#### To auth or not to auth?
+I also wanted to avoid implementing authentication – it seemed more accessible to allow the users to quickly create a list and play around with it, rather than forcing them to sign up before they could access any of the features. With the freedom of not needing to build auth, I started to brainstorm how I could structure the app without a backend API.
 
 ## The story behind Winner Winner
 As a software engineering coach at [Flatiron School](https://flatironschool.com), I lead several meetings a week where I have to pick on students to participate. We usually do a popcorn-style rotation where the person who just participated picks the next person to go. But with 25 students and 4 instructors in the class, it can be tedious taking account of who's already gone and who's still left.
