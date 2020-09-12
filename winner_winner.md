@@ -59,9 +59,9 @@ Last week, I launched a random name picker app called [Winner Winner, Chicken Di
 * I also wanted to avoid implementing authentication – it seemed more accessible to allow the users to quickly create a list and play around with it, rather than forcing them to sign up before they could access any of the features. With the freedom of not needing to build auth, I started to brainstorm how I could structure the app without a backend API.
 
 ## The story behind Winner Winner
-As a software engineering coach at Flatiron School, I lead several meetings a week where I have to pick on students to participate. We usually do a popcorn-style rotation where the person who just participated picks the next person to go. But with 25 students and 4 instructors in the class, it can be tedious taking account of who's already gone and who's still left.
+As a software engineering coach at [Flatiron School](https://flatironschool.com), I lead several meetings a week where I have to pick on students to participate. We usually do a popcorn-style rotation where the person who just participated picks the next person to go. But with 25 students and 4 instructors in the class, it can be tedious taking account of who's already gone and who's still left.
 
-I took this as a chance to create a fun, light tool that would be useful teachers, managers, and anyone else who needs a randomized list!
+I took this as a chance to create a fun, light tool that would be useful for teachers, managers, and anyone else who needs a randomized list!
 
 One of my goals this year is also to become a stronger frontend developer and familiarize myself more with different JavaScript frameworks. I love working with React, so I decided to give myself the goal of creating this app within a couple weeks. Winner Winner, Chicken Dinner! is built using React and [styled components](https://styled-components.com).
 
