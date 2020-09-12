@@ -33,4 +33,7 @@ One of my goals this year is to become a stronger frontend developer and become 
 * Would've done more research on different React tools for the Mapbox API before committing to the first one that I found and constantly refactoring my code
 * Would've reached out for help earlier from my colleagues!
 
+![Screenshot of the "spin the wheel" page for the Winner Winner, Chicken Dinner! app](https://i.imgur.com/gLXPs9x.png)
+
 ## Conclusion
+Thanks for stopping by, and please make sure to check out [Winner Winner, Chicken Dinner](https://winnerwinnerapp.com)! It's also on [Product Hunt](https://www.producthunt.com/posts/winner-winner-chicken-dinner) if you want to give it an upvote. 💓
